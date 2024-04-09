@@ -13,9 +13,5 @@ export default function Home() {
     }
   }, [isOpen, onOpen]);
 
-  return (
-    <div>
-      RootPage
-    </div>
-  );
+  return null
 }
