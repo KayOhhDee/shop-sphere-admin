@@ -8,14 +8,15 @@ import { Store } from "@prisma/client";
 import { Trash } from "lucide-react";
 import toast from "react-hot-toast";
 import axios from "axios";
+import { useParams, useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import { Heading } from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useParams, useRouter } from "next/navigation";
 import { AlertModal } from "@/components/modals/alert-modal";
+import { ApiAlert } from "@/components/ui/api-alert";
 
 interface SettingsFormProps {
   initialData: Store;
@@ -104,6 +105,12 @@ const SettingsForm: React.FC<SettingsFormProps> = ({ initialData }) => {
           </Button>
         </form>
       </Form>
+      <Separator />
+      <ApiAlert 
+        title="NEXT_PUBLIC_API_KEY" 
+        description={`${origin}/api/${params.storeId}`}
+        variant="public" 
+      />
     </>
   );
 };
