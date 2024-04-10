@@ -21,7 +21,7 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 
 const formSchema = z.object({
-  name: z.string().nonempty("Name is required"),
+  name: z.string().min(1, "Name is required"),
 });
 
 export const StoreModal = () => {
